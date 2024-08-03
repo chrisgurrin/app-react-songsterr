@@ -1,0 +1,97 @@
+/* Style resets */
+html,
+body,
+#app,
+#root,
+section#apptab {
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+h1,
+h2 {
+    font-family: serif;
+    margin-block: 0;
+}
+
+h1 {
+    font-size: 1.5rem !important;
+}
+h2 {
+    font-size: 1rem !important;
+    text-decoration: none;
+}
+
+/* Toolbar */
+#toolbar {
+    background: #52525b;
+}
+
+/* Header */
+header > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* padding-block: 2rem 0.5rem; */
+    background: white;
+    margin-inline: 18rem;
+}
+
+/* Tab */
+section#apptab {
+    position: relative;
+}
+
+section#apptab section#tablature {
+    margin-inline: 18rem;
+    background: white;
+    z-index: 1;
+}
+
+section#apptab section#tablature svg {
+    width: 100%;
+}
+
+section#apptab section#tablature div[data-line] {
+    width: fit-content;
+}
+
+/* Hide all the garbage */
+g[data-testid='Cursor'],
+g#tuning-button-location,
+aside,
+div#app > div,
+header > div > :not(h1, h2),
+section#apptab > :not(section),
+section#apptab > section#showroom,
+section#apptab div[data-tab-control='bar-dots'],
+span[aria-label='tab type'],
+section#apptab > footer {
+    display: none !important;
+}
+
+/* Print */
+@media print {
+    @page {
+        margin: 0;
+    }
+
+    #toolbar {
+        display: none;
+    }
+
+    section#apptab section#tablature {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+}
+
+/* Help */
+li {
+    list-style-type: circle;
+}
+
+li li {
+    list-style-type: square;
+}
