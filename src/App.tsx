@@ -6,7 +6,7 @@ import { faPrint } from '@fortawesome/free-solid-svg-icons';
 import parse from 'html-react-parser';
 
 const App = () => {
-    const [htmlContent, setHtmlContent] = useState(undefined);
+    const [htmlContent, setHtmlContent] = useState<string | null>(null);
 
     return (
         <div className="bg-zinc-700 w-full min-h-screen absolute">
@@ -16,7 +16,7 @@ const App = () => {
             >
                 <FileUpload
                     onFileUpload={(html: string) => {
-                        setHtmlContent(parse(html));
+                        setHtmlContent(html);
                     }}
                 />
                 |
@@ -29,12 +29,7 @@ const App = () => {
                 </button>
             </div>
             <br />
-            {/* <div
-                className="z-10"
-                dangerouslySetInnerHTML={{ __html: htmlContent }}
-            ></div> */}
-            {htmlContent ?? ''}
-            {}
+            {htmlContent ? parse(htmlContent) : ''}
         </div>
     );
 };
